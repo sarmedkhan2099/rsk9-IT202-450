@@ -33,7 +33,7 @@ if(!$db_url || count($db_url) === 0){
 
     throw new Exception("Config parsing error, check the logs for further details");
 }
-else{
+else {
     $dbhost   = $db_url["host"];
     $dbuser = $db_url["user"];
     $dbpass = $db_url["pass"];
