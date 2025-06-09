@@ -23,25 +23,35 @@ function bePositive($arr, $arrayNumber)
     // Step 3: Add code to solve the problem (add/commit as needed)
 
     $output = array_fill(0, count($arr), null); // Initialize output array
+
     // Start Solution Edits
     
     // rsk9 - 6/8/2025
     // Step 1: Loop through each element of the input array.
     // Step 2: Get absolute value of the element.
     // Step 3: Determine original data type: int, float, or string.
-    // Step 4: Convert the absolute value back to that data type.
+    // Step 4: If string, preserve whether it's an int-like or float-like string.
+    // Step 5: Assign the positive version back to output in correct type.
 
     foreach ($arr as $i => $val) {
-        $absVal = abs($val);
+        $absVal = abs((float)$val); // Always get numeric absolute value
 
         if (is_int($val)) {
             $output[$i] = (int)$absVal;
+        } elseif (is_float($val)) {
+            $output[$i] = (float)$absVal;
         } elseif (is_string($val)) {
-            $output[$i] = (string)abs((float)$val);
+            // Check if the string is integer-like
+            if (ctype_digit(ltrim($val, '-'))) {
+                $output[$i] = (string)(int)$absVal;
+            } else {
+                $output[$i] = (string)$absVal;
+            }
         }
     }
 
     // End Solution Edits
+
     echo "<span>Output: </span>";
     printOutputWithType($output);
     echo "<br>______________________________________<br>";
