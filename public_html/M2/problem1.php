@@ -1,5 +1,4 @@
 <?php
-
 require_once "base.php";
 
 $ucid = "rsk9"; // <-- set your ucid

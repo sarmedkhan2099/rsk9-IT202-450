@@ -1,0 +1,175 @@
+<!--
+Challenge 3: Carousel Layout with Swiping
+-----------------------------------------
+Requirements:
+    Using CSS adjust the layout per the following rules
+    1. Header should be at the top
+    2. Carousel should take up full width
+    3. Buttons should be centered
+    Using JavaScript solve the following
+    1. Attach appropriate event listeners to each button
+    2. Cycle through each panel showing only 1 at a time
+    3. Ensure that the panels loop when reaching the last or first one
+    4. Extra credit: Allow mouse swipe on the carousel to cycle through the panels similar to how the buttons would work 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="challenge3">
+    <nav>
+        <ul>
+            <li><a href="challenge1.html">Challenge 1</a></li>
+            <li><a href="challenge2.html" >Challenge 2</a></li>
+            <li><a href="challenge3.html" class="active">Challenge 3</a></li>
+        </ul>
+    </nav>
+    <!-- Edit your UCID here -->
+    <header>Header Section (rsk9)</header>
+    <!-- Don't make any other edits to the HTML -->
+    <nav>
+        <button>Previous</button>
+        <button>Next</button>
+    </nav>
+
+    <div class="carousel">
+        <div class="carousel-container">
+            <div class="panel">Panel 1: HTML Forms</div>
+            <div class="panel">Panel 2: CSS Grid</div>
+            <div class="panel">Panel 3: JavaScript Events</div>
+            <div class="panel">Panel 4: Responsive Design</div>
+            <div class="panel">Panel 5: Accessibility Best Practices</div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="util.js"></script>
+
+<script>
+    const prevBtn = document.querySelector('nav button:first-of-type');
+const nextBtn = document.querySelector('nav button:last-of-type');
+const carouselContainer = document.querySelector('.carousel-container');
+const panels = document.querySelectorAll('.panel');
+let currentIndex = 0;
+const totalPanels = panels.length;
+
+function showPanel(index) {
+  // Wrap index if out of bounds
+  if (index < 0) index = totalPanels - 1;
+  if (index >= totalPanels) index = 0;
+  currentIndex = index;
+  // Move container to show current panel
+  carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+}
+
+prevBtn.addEventListener('click', () => {
+  showPanel(currentIndex - 1);
+});
+
+nextBtn.addEventListener('click', () => {
+  showPanel(currentIndex + 1);
+});
+
+// Initialize first panel visible
+showPanel(0);
+
+// Extra credit: swipe support
+let startX = 0;
+let isDragging = false;
+
+carouselContainer.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+});
+
+carouselContainer.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const diffX = currentX - startX;
+  // Optional: could implement dragging effect here if you want
+});
+
+carouselContainer.addEventListener('touchend', (e) => {
+  if (!isDragging) return;
+  const endX = e.changedTouches[0].clientX;
+  const diffX = endX - startX;
+  if (Math.abs(diffX) > 30) { // Threshold to detect swipe
+    if (diffX > 0) {
+      // Swipe right = previous panel
+      showPanel(currentIndex - 1);
+    } else {
+      // Swipe left = next panel
+      showPanel(currentIndex + 1);
+    }
+  }
+  isDragging = false;
+});
+</script>
+
+<style>
+    body.challenge3, html {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-weight: bold;
+  background: #f0f0f0;
+}
+
+nav {
+  text-align: center;
+  margin: 1em 0;
+}
+
+nav button {
+  padding: 0.5em 1.5em;
+  margin: 0 0.5em;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 1px solid black;
+  background: white;
+  transition: background 0.3s ease;
+}
+
+nav button:hover {
+  background: #ddd;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.4s ease;
+  /* will be moved left/right with JS */
+}
+
+.panel {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 2em;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background: #fafafa;
+  user-select: none; /* optional */
+}
+</style>
