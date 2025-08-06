@@ -8,4 +8,4 @@
 
 # Milestone 1 Link (https://github.com/sarmedkhan2099/rsk9-IT202-450/blob/main/public_html/project/rsk9_IT202-450-M2025_it202-milestone-1_07-07-2025_23-01-51.pdf)
 # Milestone 2 Link (https://github.com/sarmedkhan2099/rsk9-IT202-450/blob/main/public_html/project/rsk9_IT202-450-M2025_it202-milestone-2_07-29-2025_00-22-07.pdf)
-# Milestone 3 Link (PDF in prod)
+# Milestone 3 Link (https://github.com/sarmedkhan2099/rsk9-IT202-450/blob/main/public_html/project/rsk9_IT202-450-M2025_it202-milestone-3_08-05-2025_23-52-19.pdf))
