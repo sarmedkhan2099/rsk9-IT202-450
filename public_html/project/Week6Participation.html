@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Mouseover and Mouseout Example </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="welcome-heading" class="hidden">Welcome to IT 202</h1>
+            <p class="instructions">
+                Mouse over the text <strong>"Show Welcome"</strong> and the Welcome Message is displayed. Mouse out and the Welcome Message disappears!
+            </p>
+
+            <p id="show-welcome-text" class="hover-text">Show Welcome</p>
+        </div>
+
+        <script>
+            const welcomeText = document.getElementById('show-welcome-text');
+            const heading = document.getElementById('welcome-heading');
+
+            welcomeText.addEventListener('mouseover', () => {
+                heading.classList.remove('hidden');
+            });
+
+            welcomeText.addEventListener('mouseout', () => {
+                heading.classList.add('hidden');
+            });
+        </script>
+    </body>
+</html>

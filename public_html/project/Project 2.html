@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPP Plumber Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Perfect Plumbing Pros (PPP) - Plumber Login</h1>
+        <form id="loginForm">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required></label>
+            <span class="required">Required</span><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="plumberID">Plumber ID:</label>
+            <input type="text" id="plumberId" name="plumberId" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="plumberPassword">Plumber's Password</label>
+            <input type ="password" id="plumberPassword" name="plumberPassword" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="email">Email:</label>
+            <input type="text" id="password" name="password" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="emailConfirmation">Request Email Confirmation:</label>
+            <input type="checkbox" id="emailConfirmation" name="emailConfirmation"><br>
+            <span class="required">Required</span><br>
+
+            <label for="transaction">Transaction Type:</label>
+            <select id="transaction" name="transaction"> 
+                <option value="searchAccount">Search Account</option>
+                <option value="bookAppointment">Book Appointment</option>
+                <option value="cancelAppointment">Cancel Appointment</option>
+                <option value="requestSupplies">Request Supplies</option>
+                <option value="updateCustomer">Update Customer</option>
+                <option value="createAccount">Create Account</option>
+            </select><br>
+
+            <button type="submit">Submit</button>
+
+            <button type="reset">Reset</button>
+        </form>
+        <script src="scriptforproject2.js"></script>
+    </div>
+</body>
+</html>

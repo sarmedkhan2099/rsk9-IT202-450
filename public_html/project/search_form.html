@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Accounts</title>
+    <link rel="stylesheet" href="SQLStyle.css">
+</head>
+<body>
+    <h1>Search Accounts</h1>
+    <form action="search_account.php" method="post">
+        <label for="search_term">Enter Search Term:</label>
+        <input type="text" name="search_term" id="search_term" required>
+        
+        <label for="search_type">Select Type to Search:</label>
+        <select name="search_type" id="search_type" required>
+            <option value="plumbers">Plumbers</option>
+            <option value="customers">Customers</option>
+            <option value="service_records">Service Records</option>
+            <option value="supplies">Supplies</option>
+        </select>
+        
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

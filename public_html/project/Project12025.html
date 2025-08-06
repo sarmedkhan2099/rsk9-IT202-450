@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars To Go - Representative Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cars To Go</h2>
+        <form action="#" method="POST">
+            <label for="rep-first-name"><b>Representative's First Name:</b></label>
+            <input type="text" id="rep-first-name" name="rep-first-name" placeholder="Example: John" required>
+            <span class="required">REQUIRED</span>
+
+            <label for="rep-last-name"><b>Representative's Last Name:</b></label>
+            <input type="text" id="rep-last-name" name="rep-last-name" placeholder="Example: Doe" required>
+            <span class="required">REQUIRED</span>
+
+            <label for="rep-password"><b>Representative's Password:</b></label>
+            <input type="password" id="rep-password" name="rep-password" placeholder="Example: CTG@1" required>
+            <span class="required">REQUIRED</span>
+
+            <label for="rep-id"><b>Representative's ID #:</b></label>
+            <input type="text" id="rep-id" name="rep-id" placeholder="Example: 2468" required>
+            <span class="required">REQUIRED</span>
+
+            <label for="rep-phone"><b>Representative's Phone #:</b></label>
+            <input type="tel" id="rep-phone" name="rep-phone" placeholder="Example: 555-555-5555" required>
+            <span class="required">REQUIRED</span>
+
+            <label for="rep-email"><b>Representative's Email:</b></label>
+            <input type="email" id="rep-email" name="rep-email" placeholder="Example: CTG@Cars.com" required>
+            <span class="required">REQUIRED</span>
+
+            <label for="email-confirmation">
+                <input type="checkbox" id="email-confirmation" name="email-confirmation"> <b>Check the box to request an Email Confirmation:</b>
+            </label>
+
+            <label for="transaction"><b>Select a Transaction:</b></label>
+            <select id="transaction" name="transaction">
+                <option value="search-account">Search A Representative's Accounts</option>
+                <option value="book-rental">Book a Customer's Rental</option>
+                <option value="cancel-rental">Cancel A Customer's Rental</option>
+                <option value="request-perks">Request Additional Perks</option>
+                <option value="update-perks">Update Perks</option>
+                <option value="new-account">Create A New Customer</option>
+            </select>
+
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Name 8 Times</title>
+</head>
+<body>
+    <h1>Enter Your Name</h1>
+    <form action="process.php" method="POST">
+        <?php for ($i = 0; $i < 8; $i++): ?>
+            <label for="name<?php echo $i; ?>">Name <?php echo $i + 1; ?>:</label>
+            <input type="text" id="name<?php echo $i; ?>" name="names[]" required><br><br>
+        <?php endfor; ?>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

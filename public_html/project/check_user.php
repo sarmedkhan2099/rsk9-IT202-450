@@ -14,15 +14,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $_POST['name'];
     $password = $_POST['password'];
 
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $stmt = $con->prepare("SELECT password FROM users WHERE name = ?");
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    $stmt->bind_result($hashedPassword);
+    $stmt->fetch();
 
-    $stmt = $con->prepare("INSERT INTO users (name, password) VALUES (?, ?)");
-    $stmt->bind_param("ss", $name, $hashedPassword);
-
-    if ($stmt->execute()) {
-        echo "User registered successfully!";
+    if ($hashedPassword && password_verify($password, $hashedPassword)) {
+        echo "Valid user.";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "Invalid name or password.";
     }
 
     $stmt->close();

@@ -1,0 +1,77 @@
+body {
+    font-family: Times New Roman, sans-serif;
+    background-image: url('https://wallpapers.com/images/hd/car-4k-modified-sports-car-d0om0zrbvu62rngd.jpg');
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background-color: #79ff0ce6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 34, 0.5);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #007;
+}
+
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+input, select {
+    width: 89%;
+    padding: 1px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    border: 3px solid #00b3ffcd;
+    border-radius: 6px;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+}
+
+button[type="reset"] {
+    background-color: #07ff87;
+}
+
+button:hover {
+    background-color: #0056b3;
+    opacity: 0.9;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 10px;
+}
+
+.required {
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
+}

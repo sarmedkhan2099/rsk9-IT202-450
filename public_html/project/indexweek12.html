@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Finder</title>
+</head>
+<body>
+    <h1>Dog Breed Finder</h1>
+    <form>
+        <label for="breed">Enter Dog Breed Name:</label>
+        <input type="text" id="breed" name="breed" onkeyup="findBreed()" autocomplete="off">
+        <div id="suggestions"></div>
+    </form>
+
+    <script>
+        async function findBreed() {
+            const breedInput = document.getElementById('breed').value;
+
+            if (breedInput.trim() === '') {
+                document.getElementById('suggestions').innerHTML = '';
+                return;
+            }
+
+            try {
+                const response = await fetch(`check_breed.php?q=${encodeURIComponent(breedInput)}`);
+                const result = await response.text();
+                document.getElementById('suggestions').innerHTML = result;
+            } catch (error) {
+                document.getElementById('suggestions').innerHTML = 'Error occurred while fetching results.';
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

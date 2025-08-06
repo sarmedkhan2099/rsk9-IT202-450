@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Records</title>
+    <link rel="stylesheet" href="SQLStyle.css">
+</head>
+<body>
+
+    <h1>Plumber Portal</h1>
+
+    <nav>
+        <ul>
+            <li><a hef="search_account.php">Search Account</a></li>
+            <li><a href="schedule_appointment.php">Schedule Appointment</a></li>
+            <li><a href="cancel_appointment.php">Cancel Appointment</a></li>
+            <li><a href="request_supplies.php">Request Supplies</a></li>
+            <li><a href="update_customer.php">Update Customer Record</a></li>
+            <li><a href="create_account.php">Create Customer Account</a></li>
+        </ul>
+    </nav>
+
+    <form action="print_records.php" method="post">
+        <button type="submit" name="print_plumbers">View Plumber Records</button>
+        <button type="submit" name="print_customers">View Customer Records</button>
+        <button type="submit" name="print_customer_info">View Customer Information</button>
+        <button type="submit" name="print_service_records">View Customer Service Records</button>
+        <button type="submit" name="print_supplies">View Plumber Supplies Records</button>
+    </form>
+
+</body>
+</html>

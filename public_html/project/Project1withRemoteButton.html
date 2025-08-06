@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars To Go</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Cars To Go - Login</h1>
+        <form action='#' method="post">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required></label>
+            <span class="required">Required</span><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="RepresentativeID">Representative ID:</label>
+            <input type="text" id="RepresentativeID" name="RepresentativeID" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="Password"></label>Password</label>
+            <input type ="password" id="Password" name="Password" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="email">Email:</label>
+            <input type="text" id="password" name="password" required><br>
+            <span class="required">Required</span><br>
+
+            <label for="emailConfirmation">Request Email Confirmation:</label>
+            <input type="checkbox" id="emailConfirmation" name="emailConfirmation"><br>
+            <span class="required">Required</span><br>
+
+
+            <label>Select a Transaction</label>
+            <label><input type="radio" name="transaction" value="search"> Search A Representative's Account</label><br>
+            <label><input type="radio" name="transaction" value="book"> Book a Customer's Rental</label><br>
+            <label><input type="radio" name="transaction" value="cancel"> Cancel a Customer's Rental</label><br>
+            <label>Select Additional Options (if any):</label><br>
+            <label><input type="radio" name="transaction" value="requestSupplies"> Request Additional Perks</label><br>
+            <label><input type="radio" name="transaction" value="updateRecords"> Update Perks</label><br>
+            <label><input type="radio" name="transaction" value="createCustomer"> Create a New Customer</label><br><br>
+
+
+            <button type="submit">Submit</button>
+
+            <button type="reset">Reset</button>
+        </form>
+    </div>
+</body>
+</html>

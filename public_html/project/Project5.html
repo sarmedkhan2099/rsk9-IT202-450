@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1, h3 {
+            text-align: center;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .messages {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .messages p {
+            margin: 5px 0;
+        }
+        .messages strong {
+            color: #333;
+        }
+        .user-list {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .user-list p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat Application</h1>
+
+        <h3>Send a Message</h3>
+        <form id="send-message-form">
+            <input type="text" id="user-name" placeholder="Your Name" required>
+            <textarea id="message-content" placeholder="Type your message here" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+        <h3>Search Messages by User</h3>
+        <input type="text" id="search-name" placeholder="Enter a name" required>
+        <button id="fetch-messages-button">Fetch Messages</button>
+
+        <div id="messages" class="messages"></div>
+
+        <h3>List of Users</h3>
+        <button id="list-users-button">List Users</button>
+        <div id="user-list" class="user-list"></div>
+    </div>
+
+    <script>
+        function ajax(url, method, data = null, callback) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(method, url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    callback(xhr.responseText);
+                }
+            };
+            xhr.send(data);
+        }
+
+        document.getElementById('send-message-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('user-name').value;
+            const message = document.getElementById('message-content').value;
+
+            if (!name || !message) {
+                alert("Please enter both name and message.");
+                return;
+            }
+
+            const data = `name=${encodeURIComponent(name)}&message=${encodeURIComponent(message)}`;
+
+            ajax('send_message.php', 'POST', data, function (response) {
+                alert(response);
+                document.getElementById('message-content').value = '';
+            });
+        });
+
+        document.getElementById('fetch-messages-button').addEventListener('click', function () {
+            const name = document.getElementById('search-name').value.trim();
+            if (!name) {
+                alert("Please enter a name to search.");
+                return;
+            }
+
+            const data = `name=${encodeURIComponent(name)}`;
+
+            ajax(`fetch_messages.php?${data}`, 'GET', null, function (response) {
+                const messages = JSON.parse(response);
+                const messagesDiv = document.getElementById('messages');
+                messagesDiv.innerHTML = '';
+
+                if (messages.length > 0) {
+                    messages.forEach(msg => {
+                        messagesDiv.innerHTML += `<p><strong>${msg.timestamp}</strong>: ${msg.message} ${msg.edited ? '(edited)' : ''}</p>`;
+                    });
+                } else {
+                    messagesDiv.innerHTML = '<p>No messages found for this user.</p>';
+                }
+            });
+        });
+
+        document.getElementById('list-users-button').addEventListener('click', function () {
+            ajax('list_names.php', 'GET', null, function (response) {
+                const users = JSON.parse(response);
+                const userList = document.getElementById('user-list');
+                userList.innerHTML = '';
+
+                if (users.length > 0) {
+                    users.forEach(user => {
+                        userList.innerHTML += `<p>${user}</p>`;
+                    });
+                } else {
+                    userList.innerHTML = '<p>No users found.</p>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
