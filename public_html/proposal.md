@@ -1,7 +1,9 @@
 # Rana Khan
 # User Interactive Website Project Milestone
+# Project Github Folder (https://github.com/sarmedkhan2099/rsk9-IT202-450/tree/main/public_html/project)
 # This website is a full-stack user and content management system built using PHP, MySQL, HTML, and CSS, hosted on NJIT’s student web server. It allows users to register, log in, and interact with content such as a list of films, with secure authentication and session management. The application features role-based access control, where regular users can view and interact with data, while admin users have elevated privileges to manage users and records. All user data and content are stored in a MySQL database, with actions like registration, login, edits, and deletions processed through PHP scripts using prepared statements for security. The site showcases dynamic page rendering, form validation, and database interaction, demonstrating a strong understanding of full-stack web development principles.
 # API (https://ghibliapi.vercel.app/films)
+# Link (https://web.njit.edu/~rsk9/index.php)
 # IT202-450
 
 # Demo Link (youtube)

@@ -13,7 +13,7 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Film Management System</h1>
+    <h1>Welcome to the Data Management System</h1>
     <p>Please <a href="Login.php">Login</a> or <a href="Register.php">Register</a> to continue.</p>
 </body>
 </html>
